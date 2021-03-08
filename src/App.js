@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// Assets
+import imgCronometro from   "./assets/cronometro.png"
+
+//Styles
+import "./app.scss" 
+import { useCallback, useState } from "react";
+
 
 function App() {
+
+
+  const [time,setTime] = useState(0);
+  
+  
+  const startTime = useCallback(()=>{
+    
+
+
+  },[])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app__container">
+      <img src={imgCronometro} alt="Cronometro"  className="app__container__image"/>
+      <div className="app__timer"> {time.toFixed(1)}</div>
+      <div className="app__button-container">
+        <div className ="app__button-container__button" onClick={startTime}> Iniciar </div>
+        <div className ="app__button-container__button"onClick={() => setTime(0)}> limpar </div>
+      </div>
+      
     </div>
   );
 }
